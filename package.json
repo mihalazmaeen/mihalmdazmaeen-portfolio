@@ -9,12 +9,12 @@
   },
   "scripts": {
     "client-install": "npm install --prefix client",
+    "build-client": "npm run build --prefix client",
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "npm run client-install && npm run build --prefix client"
-   
+    "build": "npm run client-install && npm run build-client"
   },
   "repository": {
     "type": "git",
