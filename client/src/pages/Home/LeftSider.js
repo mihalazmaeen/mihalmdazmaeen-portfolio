@@ -5,10 +5,35 @@ function LeftSider() {
     <div className="fixed left-0 bottom-0 px-10 sm:static">
       <div className="flex flex-col items-center justify-center">
         <div className="flex flex-col gap-3 sm:flex-row">
-          <i class="ri-facebook-circle-line text-gray-400 text-xl"></i>
-          <i class="ri-mail-line text-gray-400 text-xl"></i>
-          <i class="ri-linkedin-box-line text-gray-400 text-xl"></i>
-          <i class="ri-github-line text-gray-400 text-xl"></i>
+          <a
+            href="mailto:azmaeenmihal1@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="ri-mail-line text-gray-400 text-xl"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/mihalmdazmaeen"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="ri-linkedin-box-line text-gray-400 text-xl"></i>
+          </a>
+          <a
+            href="https://github.com/mihalazmaeen"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="ri-github-line text-gray-400 text-xl"></i>
+          </a>
+
+          <a
+            href="https://www.facebook.com/azmaeen.mihal"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="ri-facebook-circle-line text-gray-400 text-xl"></i>
+          </a>
         </div>
       </div>
 
