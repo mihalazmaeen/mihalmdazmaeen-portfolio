@@ -10,20 +10,7 @@ function AdminProjects() {
   const [showAddEditModal, setShowAddEditModal] = useState(false);
   const [selectedItemorEdit, setSelectedItemorEdit] = useState(null);
   const { project } = portfolioData;
-  const [type, setType] = useState("add");
-  const [imageFile, setImageFile] = useState(null);
-  const [imagePreview, setImagePreview] = useState("");
   const [form] = Form.useForm();
-
-  useEffect(() => {
-    if (selectedItemorEdit?.image) {
-      setImagePreview(
-        `http://localhost:5000/uploads/${selectedItemorEdit.image}`
-      );
-    } else {
-      setImagePreview("");
-    }
-  }, [selectedItemorEdit]);
 
   const onDelete = async (item) => {
     try {
@@ -58,20 +45,12 @@ function AdminProjects() {
         }
       });
 
-      if (imageFile) {
-        formData.append("image", imageFile);
-      }
-
       let response;
       if (selectedItemorEdit) {
         formData.append("_id", selectedItemorEdit._id);
-        response = await axios.post("/api/portfolio/update-project", formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
+        response = await axios.post("/api/portfolio/update-project", formData);
       } else {
-        response = await axios.post("/api/portfolio/add-project", formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
+        response = await axios.post("/api/portfolio/add-project", formData);
       }
 
       dispatch(HideLoading());
@@ -90,24 +69,14 @@ function AdminProjects() {
     }
   };
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    setImageFile(file);
-    setImagePreview(URL.createObjectURL(file));
-  };
-
   const handleAdd = () => {
     setSelectedItemorEdit(null);
-    setImageFile(null);
-    setImagePreview("");
     form.resetFields();
     setShowAddEditModal(true);
   };
 
   const handleEdit = (project) => {
     setSelectedItemorEdit(project);
-    setImageFile(null); // Clear any previous image file
-    setImagePreview(`http://localhost:5000/uploads/${project.image}`);
     form.setFieldsValue({
       ...project,
       technologies: project.technologies.join(", "),
@@ -133,7 +102,7 @@ function AdminProjects() {
             </h1>
             <hr />
             <img
-              src={`http://localhost:5000/uploads/${project.image}`}
+              src={project.image} // Use the image URL directly
               alt="Project"
               className="h-40 w-60 text-center"
             />
@@ -176,8 +145,6 @@ function AdminProjects() {
           onCancel={() => {
             setShowAddEditModal(false);
             setSelectedItemorEdit(null);
-            setImageFile(null);
-            setImagePreview("");
             form.resetFields();
           }}
         >
@@ -194,21 +161,8 @@ function AdminProjects() {
             <Form.Item name="description" label="Description">
               <Input.TextArea placeholder="Description" />
             </Form.Item>
-            <Form.Item label="Upload Image">
-              <input
-                type="file"
-                onChange={handleImageChange}
-                accept="image/*"
-              />
-              {imagePreview && (
-                <div style={{ marginTop: 10 }}>
-                  <img
-                    src={imagePreview}
-                    alt="Preview"
-                    style={{ width: 200 }}
-                  />
-                </div>
-              )}
+            <Form.Item name="image" label="Image URL">
+              <Input placeholder="Image URL" />
             </Form.Item>
             <div className="flex justify-end gap-2">
               <button
@@ -217,8 +171,6 @@ function AdminProjects() {
                 onClick={() => {
                   setShowAddEditModal(false);
                   setSelectedItemorEdit(null);
-                  setImageFile(null);
-                  setImagePreview("");
                   form.resetFields();
                 }}
               >

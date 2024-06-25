@@ -36,7 +36,7 @@ function Projects() {
         </div>
         <div className="flex items-center justify-center gap-10 sm:flex-col">
           <img
-            src={`http://localhost:5000/uploads/${project[selectedItemIndex].image}`}
+            src={project[selectedItemIndex].image} // Use the image URL directly
             alt="Project"
             className="h-60 w-72"
           />
