@@ -12,9 +12,11 @@ import {
 } from "react-icons/fa";
 import { DiJqueryLogo } from "react-icons/di";
 import { SiMysql } from "react-icons/si";
+import { SiPhp } from "react-icons/si";
+
 
 const skillIconMapping = {
-  php: <FaPhp />,
+  php: <SiPhp />,
   javascript: <FaJs />,
   laravel: <FaLaravel />,
   vuejs: <FaVuejs />,

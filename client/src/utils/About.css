@@ -1,0 +1,18 @@
+/* Projects.css */
+.animated-icon {
+  perspective: 1000px; /* Apply perspective for 3D effect */
+}
+
+.icon-container {
+  transform-style: preserve-3d; /* Maintain 3D positioning */
+  animation: breathe 2s ease-in-out infinite alternate; /* Breathing animation */
+}
+
+@keyframes breathe {
+  0% {
+    transform: scale(1) translateZ(0); /* Initial scale */
+  }
+  100% {
+    transform: scale(1.1) translateZ(0); /* Slightly larger scale */
+  }
+}

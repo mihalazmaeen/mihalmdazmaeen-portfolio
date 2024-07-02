@@ -2,6 +2,8 @@ import React from "react";
 import SectionTitle from "../../components/SectionTitle";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { skillIconMapping, skillColorMapping } from "../../utils/skillIcons";
+import "../../utils/Projects.css";
 
 function Projects() {
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
@@ -56,6 +58,20 @@ function Projects() {
             <p className="text-white text-xl">
               {project[selectedItemIndex].description}
             </p>
+            <div className="flex gap-3">
+              {project[selectedItemIndex].technologies.map((tech, index) => (
+                <div key={index} className="flex items-center animated-icon">
+                  {skillIconMapping[tech.toLowerCase()] && (
+                    <span
+                      className="text-4xl mr-2"
+                      style={{ color: skillColorMapping[tech.toLowerCase()] }}
+                    >
+                      {skillIconMapping[tech.toLowerCase()]}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
