@@ -24,7 +24,7 @@ function Intro() {
       </h1>
       <p className="text-white">{description || ""}</p>
       <a
-        href="https://shorturl.at/XgjAA"
+        href="https://drive.google.com/file/d/1FeDCQDqULFkGWSvZiOJE6baJWTmJ1CAA/view?usp=sharing"
         target="_blank"
         rel="noopener noreferrer"
       >
