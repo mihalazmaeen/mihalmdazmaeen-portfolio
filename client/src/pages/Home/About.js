@@ -1,12 +1,11 @@
 import React from "react";
 import SectionTitle from "../../components/SectionTitle";
-
 import { useSelector } from "react-redux";
+import {skillIconMapping, skillColorMapping} from "../../utils/skillIcons";
 
 function About() {
   const { loading, portfolioData } = useSelector((state) => state.root);
   const { about } = portfolioData;
-  console.log(about);
 
   const { aboutIntro, skillTitle, skills, image } = about;
 
@@ -32,7 +31,20 @@ function About() {
         <h1 className="text-white text-xl">{skillTitle || ""}</h1>
         <div className="flex flex-wrap gap-10 mt-5">
           {skills.map((skill, index) => (
-            <div key={index} className="border border-white py-3 px-5">
+            <div
+              key={index}
+              className="border border-white py-3 px-5 flex items-center"
+            >
+              {skillIconMapping[skill.toLowerCase()] ? (
+                <span
+                  className="text-2xl mr-2"
+                  style={{ color: skillColorMapping[skill.toLowerCase()] }}
+                >
+                  {skillIconMapping[skill.toLowerCase()]}
+                </span>
+              ) : (
+                <div className="w-6 h-6 rounded-full bg-gray-400 mr-2"></div>
+              )}
               <h1 className="text-tertiary">{skill}</h1>
             </div>
           ))}

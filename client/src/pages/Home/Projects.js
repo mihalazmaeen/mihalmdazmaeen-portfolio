@@ -1,7 +1,7 @@
 import React from "react";
 import SectionTitle from "../../components/SectionTitle";
-
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Projects() {
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
@@ -9,12 +9,13 @@ function Projects() {
   const { project } = portfolioData;
 
   const { title, period, image, description, link, technologies } = project;
+
   return (
     <div>
       <SectionTitle title="Projects" />
 
       <div className="flex py-10 gap-10 sm:flex-col">
-        <div className="flex flex-col gap-10 border-l-2 border-[#30817d8c] w-1/3 sm:flex-row sm:w-full sm:overflow-x-scroll">
+        <div className="flex flex-col gap-10 border-l-2 border-[#30817d8c] w-full sm:w-full sm:overflow-x-hidden max-h-[calc(4*5rem)] overflow-y-auto">
           {project.map((project, index) => (
             <div
               key={index}
@@ -44,7 +45,14 @@ function Projects() {
             <h1 className="text-secondary text-xl">
               {project[selectedItemIndex].title}
             </h1>
-            <p className="text-white">{project[selectedItemIndex].link}</p>
+            <Link
+              className="text-white"
+              to={`${project[selectedItemIndex].link}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {project[selectedItemIndex].link}
+            </Link>
             <p className="text-white text-xl">
               {project[selectedItemIndex].description}
             </p>
