@@ -12,6 +12,16 @@ module.exports = {
         secondary: "#F97316",
         tertiary: "#54D688",
       },
+      keyframes: {
+        borderAnimation: {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
+      },
+      animation: {
+        borderAnimation: "borderAnimation 10s linear infinite",
+      },
     },
     screens: {
       lg: { max: "2023px" },
