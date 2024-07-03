@@ -1,6 +1,7 @@
 import React from "react";
 import SectionTitle from "../../components/SectionTitle";
 import { useSelector } from "react-redux";
+import Typewriter from "typewriter-effect";
 
 function Experiences() {
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
@@ -8,12 +9,13 @@ function Experiences() {
   const { experience } = portfolioData;
 
   const { company, title, period, description } = experience;
+  
 
   return (
     <div>
       <SectionTitle title={"Experience"} />
       <div className="flex py-10 gap-10 sm:flex-col">
-        <div className="flex flex-col gap-10 border-l-2 border-[#30817d8c] w-1/3 sm:flex-row sm:w-full sm:overflow-x-scroll">
+        <div className="flex flex-col gap-10 border-l-2 border-[#30817d8c] w-1/2 sm:flex-row sm:w-full sm:overflow-x-scroll">
           {experience.map((experience, index) => (
             <div
               key={index}
@@ -34,16 +36,23 @@ function Experiences() {
           ))}
         </div>
 
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 w-1/2">
           <h1 className="text-secondary text-xl">
             {experience[selectedItemIndex].title}
           </h1>
           <h1 className="text-tertiary text-xl">
             {experience[selectedItemIndex].company}
           </h1>
-          <p className="text-white text-xl">
-            {experience[selectedItemIndex].description}
-          </p>
+          <div className="text-white text-xl">
+            <Typewriter
+              options={{
+                strings: experience[selectedItemIndex].description,
+                autoStart: true,
+
+                delay: 20,
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
