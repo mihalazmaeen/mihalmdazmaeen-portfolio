@@ -12,15 +12,24 @@ module.exports = {
         secondary: "#F97316",
         tertiary: "#54D688",
       },
-      keyframes: {
-        borderAnimation: {
-          "0%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-          "100%": { backgroundPosition: "0% 50%" },
-        },
-      },
       animation: {
-        borderAnimation: "borderAnimation 10s linear infinite",
+        // {...}
+        spin_right: "spin_right 3s linear infinite",
+        spin_right_fast: "spin_right 2s linear infinite",
+        spin_left: "spin_left 3s linear infinite",
+      },
+      keyframes: {
+        // {...}
+        spin_right: {
+          "0%": { transform: "rotate(0deg)" },
+          "50%": { transform: "rotate(180deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        spin_left: {
+          "0%": { transform: "rotate(0deg)" },
+          "50%": { transform: "rotate(-180deg)" },
+          "100%": { transform: "rotate(-360deg)" },
+        },
       },
     },
     screens: {
