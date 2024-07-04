@@ -60,7 +60,8 @@ function Intro() {
         rel="noopener noreferrer"
         className="relative inline-block"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-yellow-500 to-blue-500 rounded-lg blur-md animate-borderAnimation"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-yellow-500 to-blue-500 rounded-lg blur-md animate-pulse"></div>
+
         <button className="relative border-2 border-tertiary text-tertiary px-10 py-5 sm:px-5 sm:py-3 bg-primary rounded-lg">
           My Resume
         </button>
