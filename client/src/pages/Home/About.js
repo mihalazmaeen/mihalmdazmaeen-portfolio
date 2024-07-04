@@ -14,9 +14,9 @@ function About() {
     <div>
       <SectionTitle title="About" />
       <div className="flex w-full items-center sm:flex-col">
-        <div className="h-[70vh] w-1/2 mt-4  sm:w-full mb-3 relative">
+        <div className="h-[70vh] w-1/2 mt-5  sm:w-full mb-3 relative">
           <div class="relative flex justify-center items-center">
-            <div className="absolute">
+            <div className="absolute mt-5">
               <div class="flex w-[300px] h-[300px] justify-center items-center relative">
                 <div class="w-[110%] h-[110%] shadow-lg shadow-pink-500 bg-transparent rounded-full absolute animate-spin_right"></div>
                 <div class="w-[108%] h-[108%] shadow-lg shadow-teal-600 bg-transparent rounded-full absolute animate-spin_left"></div>
@@ -29,7 +29,7 @@ function About() {
               alt="mihal"
               height={400}
               width={300}
-              className="rounded-full shadow-lg object-cover z-10" // Added classes for styling
+              className="rounded-full mt-5 shadow-lg object-cover z-10" // Added classes for styling
             />
           </div>
         </div>
