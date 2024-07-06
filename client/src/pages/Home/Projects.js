@@ -76,7 +76,7 @@ function Projects() {
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
                   <Link
-                    className="text-white"
+                    className=" text-tertiary hover:underline"
                     to={`${project[selectedItemIndex].link}`}
                     target="_blank"
                     rel="noopener noreferrer"
