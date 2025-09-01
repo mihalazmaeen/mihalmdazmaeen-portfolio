@@ -55,7 +55,7 @@ function Intro() {
         />
       </p>
       <a
-        href="https://drive.google.com/file/d/1FeDCQDqULFkGWSvZiOJE6baJWTmJ1CAA/view?usp=sharing"
+        href="https://drive.google.com/file/d/1mdPKSSNZpIVzXd_rf6WUmDMER7Z5BBzx/view?usp=drive_link"
         target="_blank"
         rel="noopener noreferrer"
         className="relative inline-block"
